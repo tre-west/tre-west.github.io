@@ -1,48 +1,63 @@
+/* Style the side navigation */
+.sidenav {
+  float: left;
+  height: 100%;
+  width: 10%;
+  overflow: auto;
+  background-color: #33334d;
+}
+
+/* Side navigation links */
+.sidenav a {
+  padding: 1;
+  text-decoration: none;
+  display: block;
+}
+
+/* Style the content */
+.content {
+  margin-left: 200px;
+  padding-left: 20px;
+}
+
 body {
-    background: rgba(65, 57, 57, 0.76);
-    color:azure;
+    background: #33334d;
+    color: #EBEBEB;
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0 100px 0 100px;
-    padding: 0;
+	  top: 0;
+    margin: 10px;
+    padding: 10px;
+  	line-height: 1.5;
+    font-size: 12pt;
 }
 
-header {
-    background: rgb(0, 166, 216);
-    padding: 0;
-
-}
-
-section {
-    background-color: white;
-    color: rgb(12, 7, 7);
-    padding: 0;
+table {
+	text-align: center;
 }
 
 header .logo {
     background-image: url("images/Logo.png");
-    background-size: 350px;
+    background-size: 250px;
     background-repeat: no-repeat;
     text-indent: -9999999px;
     display: inline-block;
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
     position: relative;
 }
 
-ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+a:hover {
+	color: #507EFE;
 }
 
-li {
-    display: inline;
-    padding: 1px 10px;
-    border-radius: 5px;
-    background-color: aqua;
+a:link, :visited {
+	color: #EBEBEB;
 }
 
-footer {
-    background: black;
-    padding: 0;
+h1, h2, h3 {
+	color: #507EFE;
+}
+
+h4, h5, h6 {
+	color: #EBEBEB;
 }
