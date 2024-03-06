@@ -1,1 +1,207 @@
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheNetworkJourney</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <section>
+        <div class="sidenav">
+		    <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../posts.html">Posts</a></li>
+                <li><a href="../projects.html">Projects</a></li>
+                <li><a href="../resources.html">Resources</a></li>
+            </ul>
+		</div>
+		<div class="content">
+			<h1>
+				Network Fundamentals
+			</h1>
+			<h3>
+				1.1 Compare and contrast the Open Systems Interconnection (OSI) model layers and encapsulation concepts
+			</h3>
+			<h4>
+				OSI Reference model
+			</h4>
+			<p>
+				The Open System Interconnection reference model is used to separate the roles and standards for the various activities for communication between devices. <br>
+				<table><thead><tr><th>Layer</th><th>Name</th><th>Function</th><th>Protocols</th></tr></thead>
+				<tbody><tr><td>7</td><td>Application</td><td>Provides the ability for applications to communicate</td><td>DNS, DHCP, FTP, HTTPS, IMAP, LDAP, NTP, POP3, RTP, RTSP, SSH, SIP, SMTP, SNMP, Telnet, TFTP</td></tr>
+				<tr><td>6</td><td>Presentation</td><td>Formats data into types along with encrypting data.</td><td>JPEG, MIDI, MPEG, PICT, TIFF</td></tr>
+				<tr><td>5</td><td>Session</td><td>Establishes the connection between two devices.</td><td>NetBIOS, NFS, PAP, SCP, SQL, ZIP</td></tr>
+				<tr><td>4</td><td>Transport</td><td>Data flow and control along with error checking.</td><td>TCP, UDP</td></tr>
+				<tr><td>3</td><td>Network</td><td>Determines the route for internetwork communications.</td><td>ICMP, IGMP, IPsec, IPv4, IPv6, IPX, RIP</td></tr>
+				<tr><td>2</td><td>Data link</td><td>Determines the route for intranetwork communications.</td><td>ARP, ATM, CDP, FDDI, Frame Relay, HDLC, MPLS, PPP, STP, Token Ring</td></tr>
+				<tr><td>1</td><td>Physical</td><td>The media used for transporting the data.</td><td>Bluetooth, Ethernet, DSL, ISDN, 802.11 Wi-Fi</td></tr></tbody></table>
+			</p>
+			<h4>
+				Encapsulation/Decapsulation
+			</h4>
+			<p>
+				As data moves down the OSI model different headers and trailers are added to the data to package it so the data is able to be sent and understood as it is processed on the other end. 
+				The headers and trailers act as packaging for the data to be sent correctly which is the <b>Payload</b>. As data is transferred, a set size limit is necessary to ensure information contained is sent
+				properly. This limit on the size of the payload is the <b>Maximum Transmission Unit</b> (MTU).
+				<table>
+					<thead>
+						<tr><th>Layer</th><th>Encapsulation/Decapsulation Process</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>7</td><td>Application</td><td>| App Data |</td></tr>
+						<tr><td>6</td><td>Presentation</td><td>| App Data |</td></tr>
+						<tr><td>5</td><td>Session</td><td>| App Data |</td></tr>
+						<tr><td>4</td><td>Transport</td><td>| Segment Header | App Data |</td></tr>
+						<tr><td>3</td><td>Network</td><td>| Packet Header | Segment Header | App Data |</td></tr>
+						<tr><td>2</td><td>Data link</td><td>| Frame Header | Packet Header | Segment Header | App Data | Frame Trailer |</td></tr>
+						<tr><td>1</td><td>Physical</td><td>| Ethernet Header | Frame Header | Packet Header | Segment Header | App Data | Frame Trailer |</td></tr>
+					</tbody>
+				</table>
+			</p>
+			<h4>
+				Network Topology
+			</h4>
+			<p>
+				<table>
+					<thead>
+						<tr><th>Topology</th><th>Benefits</th><th>Negatives</th><th>Diagram</th></tr>
+					</thead>
+					<tbody>
+						<tr><td>Mesh</td><td>Provides highest redundancy</td><td>Cost the most/Hardest to expand.</td><td><img src="../../images/mesh_topology.JPG" alt="Mesh Topology"></td></tr>
+						<tr><td>Star/Hub-and-Spoke</td><td>Easy expansion</td><td>Center node is a single point of failure.</td><td><img src="../../images/star_topology.JPG" alt="Star Topology"></td></tr>
+						<tr><td>Bus</td><td>Cheap implementation</td><td>Break in line is a single point of failure.</td><td><img src="../../images/bus_topology.JPG" alt="Bus Topology"></td></tr>
+						<tr><td>Ring</td><td>Cheap implementation</td><td>Signals run through each machine to destination. Single point of failure.</td><td><img src="../../images/ring_topology.JPG" alt="Ring Topology"></td></tr>
+						<tr><td>Hybrid</td><td>Best of both or more worlds</td><td>Has the drawbacks of each that is used.</td><td><img src="../../images/hybrid_topology.JPG" alt="Hybrid Topology"></td></tr>
+					</tbody>
+				</table>
+			</p>
+			<h4>
+				Network Types and Characteristics
+			</h4>
+			<p>
+				<b>Peer-to-Peer</b><br>
+				Peer-to-Peer relationships between systems work with two nodes connected directly to each other. These systems are able to simultaneously 
+				act as a client requesting information from the other and a server giving out services to another.<br><br>
+				<b>Client-Server</b><br>
+				Client-Server relationships between systems create an established service provider who is the server and all other clients can request from the server.<br><br>
+				<b>Local Area Network (LAN)</b><br>
+				Local Area Networks are a collection of nodes connected to a single network. These devices are able to communicate without having route data to another network.
+				This makes most office networks and home networks.<br><br>
+				<b>Metropolitan Area Network (MAN)</b><br>
+				Metropolitan Area Network cover the span of a city. This would be multiple different office building being connected together to create company network.<br><br>
+				<b>Wide Area Network (WAN)</b><br>
+				Wide Area Network are networks that span over the world. These networks build up what is considered the Internet.<br><br>
+				<b>Wireless Local Area Network (WLAN)</b><br>
+				Wireless Local Area Networks by communicating without a physical media to pass information. The data is transferred between nodes with wireless signals to each other.
+				This is common in homes and offices that connect each device through wireless means.<br><br>
+				<b>Personal Area Network (PAN)</b><br>
+				Personal Area Networks include the devices that are found on an individual person. These devices include smart watches, cell phones, wireless headphones, and other short 
+				range communication devices.<br><br>
+				<b>Campus Area Network (CAN)</b><br>
+				Campus Area Networks are defined as covering multiple building within a small geographical region such as a college campus.<br><br>
+				<b>Storage Area Network (SAN)</b><br>
+				Storage Area Networks are the network connections in a datacenter established to house storage for large amounts of data.<br><br>
+				<b>Software-defined Wide Area Network (SDWAN)</b><br>
+				Sofware-defined Wide Area Networks?<br><br>
+				<b>Multiprotocol Label Switching (MPLS)</b><br>
+				Multiprotocol Label Switching?<br><br>
+				<b>Multipoint Generic Routing Encapsulation (mGRE)</b><br>
+				Multipoint Generic Routing Encapsulation?<br><br>
+			</p>
+			<h4>
+				Service-related Entry Point
+			</h4>
+			<p>
+				<b>Demarcation Point</b><br>
+				The demarcation point acts as the line between the service provider and the user. This is normally a box installation that brings internet connectivity to the home
+				and where the connection to the users router or modem is. This also separates the task of repair as anything on the provider's side is up to them to fix but 
+				anything on the user's side is there problem to fix.<br><br>
+				<b>Smartjack</b><br>
+				Smartjacks offer the ability for service providers to troubleshoot network issues without having to go all the way out to the site. It comes with a collection of 
+				utilities they can run to troubleshoot problems to the demarcation point.<br><br>
+			</p>
+			<h4>
+				Virtual Network Concepts
+			</h4>
+			<p>
+				<b>vSwitch</b><br>
+				<b>Virtual Network Interface Card (vNIC)</b><br>
+				<b>Network Function Virtualization (NFV)</b><br>
+				<b>Hypervisor</b><br>
+			</p>
+			<h4>
+				Provider Links
+			</h4>
+			<p>
+				<b>Satellite</b><br>
+				<b>Digital Subscriver Line (DSL)</b><br>
+				<b>Cable</b><br>
+				<b>Leased Line</b><br>
+				<b>Metro-Optical</b><br>
+			</p>
+			<h3>
+				1.2 Explain the characteristics of network topologies and network types
+			</h3>
+			<h4>
+				Copper Cabling
+			</h4>
+			<p>
+				<b>Twisted Pair (Cat Cabling)</b><br>
+				<table>
+					<thead>
+						<th>Cat Cable</th><th>Transmission Rate</th><th>Distance</th>
+					</thead>
+					<tbody>
+						<tr><td>Cat 3</td><td>10 Mbps</td><td>100m</td></tr>
+						<tr><td>Cat 4</td><td>16 Mbps</td><td>100m</td></tr>
+						<tr><td>Cat 5</td><td>100 Mbps</td><td>100m</td></tr>
+						<tr><td>Cat 5e</td><td>1 Gbps</td><td>100m</td></tr>
+						<tr><td>Cat 6</td><td>1 Gbps<br>10 Gbps</td><td>100m<br>37m</td></tr>
+						<tr><td>Cat 6a</td><td>10 Gbps</td><td>100m</td></tr>
+						<tr><td>Cat 7</td><td>10 Gbps</td><td>100m</td></tr>
+						<tr><td>Cat 8</td><td>40 Gbps</td><td>30m</td></tr>
+					</tbody>
+				</table>
+			</p>
+			<h3>
+				1.3 Summarize the types of cables and connectors and explain which is the appropriate type for a solution
+			</h3>
+			<p>
+				asdf
+			</p>
+			<h3>
+				1.4 Given a scenario, configure a subnet and use appropriate IP addressing schemes
+			</h3>
+			<p>
+				asdf
+			</p>
+			<h3>
+				1.5 Explain common ports and protocols, their application, and encrypted alternatives
+			</h3>
+			<p>
+				asdf
+			</p>
+			<h3>
+				1.6 Explain the use and purpose of network services
+			</h3>
+			<p>
+				asdf
+			</p>
+			<h3>
+				1.7 Explain basic corporate and datacenter network architecture
+			</h3>
+			<p>
+				asdf
+			</p>
+			<h3>
+				1.8 Summarize cloud concepts and connectivity options
+			</h3>
+			<p>
+				asdf
+			</p>
+		</div>
+    </section>
+    <section>lower-section</section>
+    <footer>footer</footer>
+</body>
+</html>
