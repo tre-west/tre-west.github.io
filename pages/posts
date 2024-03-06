@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheNetworkJourney</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <header>
+        <nav class="logo"></nav>
+        <h1><strong>The Network Journey</strong></h1>
+    </header>
+    <section class="post">
+	        <div class="sidenav">
+		    <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="posts.html">Posts</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="resources.html">Resources</a></li>
+            </ul>
+		</div>
+		<div class="content">
+            <a href="post/network_fundamentals.html">Network Fundamentals</a><br>
+            <a href="post/network_implementations.html">Network Implementations</a><br>
+            <a href="post/network_operations.html">Network Operations</a><br>
+            <a href="post/network_security.html">Network Security</a><br>
+            <a href="post/network_troubleshooting.html">Network Troubleshooting</a>
+		</div>
+    </section>
+</body>
+</html>
