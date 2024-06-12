@@ -64,6 +64,10 @@ ul {
     list-style: none;
 }
 
+li {
+    color: white;
+}
+
 .sidebar {
     list-style: none;
     padding-bottom: 10px;
