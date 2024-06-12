@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Nova-OVW-Bandit</title>
+        <link rel="stylesheet" href="../../stylesheet.css">
+        <meta charset="UTF-8">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="author" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 class="header">Nova Scotia</h1>
+        <column class="side">
+            <ul class="sidebar">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../projects/index.html">Projects</a></li>
+                <li><a href="../../resources/index.html">Resources</a></li>
+                <li><a href="../index.html">Posts</a></li>
+                <li><a href="../../about/index.html">About</a></li>
+            </ul>
+        </column>
+        <column class="main">
+            <div class="article">
+                <h1><a href="https://overthewire.org/wargames/bandit/">Over The Wire - Bandit</a></h1>
+                <h3>Level 0</h3>
+                <p>
+                    Level 0 is just the initial setting up of the connection of the game.
+                    The process for me involved installing VM softare to run a Linux
+                    machine off of as Windows requires a more complicated process to
+                    run these games smoothly. I will discuss setting up a VM machine
+                    in another post. Once logged into the Linux machine, pop open the
+                    console. Then you simply type in:<br>
+                    ssh bandit0@bandit.labs.overthewire.org -p 2220<br>
+                    This uses the secure shell connection type with the username
+                    <b>bandit0</b> on the host <b>@bandit.labs.overthewire.org</b> using
+                    the port <b>-p 2220</b>. The common port for secure shell (SSH) is 22
+                    but for this lab 2220 is used instead. This will prompt for the password
+                    to be input which is given in the challenge.<br>
+                    *Click the level header to open the challenge on the main site.
+                </p><br><hr><br>
+                <h3>Level 0-1</h3>
+                <p>
+                    To find the password to the next level there is a file that contains
+                    the file on the user you connected as. The file is contained in a file
+                    named <b>readme</b>. The process of reading the content of the file
+                    uses the command:<br>
+                    cat readme<br>
+                    This reveals the password in the console. Write down the password and
+                    use it with the process used in the previous level to login to 
+                    <b>Bandit1</b>. Be sure to change the number in the login to 1.
+                </p><br><hr><br>
+                <h3>Level 1-2</h3>
+                <p>
+                    The first few levels follow a pattern of simply using the <b>ls -a</b> command to see files in the current directory. There 
+                    is a file named <b>-</b>. This can be read with cat but needs to be edited to <b>cat ./-</b> as it will not read using the
+                    normal cat command. 
+                </p><br><hr><br>
+                <h3>Level 2-3</h3>
+                <p>
+                    Following the previous level start with <b>ls -a</b>. This one shows a file named
+                    <b>spaces in filename</b>. The cat command cannot read the file when typed as written as this is interpretted as different items after each
+                    space. The file can be read by setting it between parenthesis like, <b>"spaces in filename"</b>.
+                </p><br><hr><br>
+                <h3>Level 3-4</h3>
+                <p>
+                    Following the process of using <b>ls -a</b>, a file name <b>.hidden</b>. To read this file, use <b>cat ./.hidden</b> and go on to the next level.
+                </p><br><hr><br>
+                <h3>Level 4-5</h3>
+                <p>
+                    This level contains a directory called <b>inhere</b>. Using the command, <b>cd inhere</b> allows you to change the current directory to inhere.
+                    Inside this directory is a list of files that can possible contain the password. The cat command can be used to read through the files till 
+                    the password is found.
+                </p><br><hr><br>
+                <h3>Level 5-6</h3>
+                <p>
+                    This level follows the same as before but we are given the hint that the file size is 1033 bytes. Once inside the inhere directory, we can 
+                    use the find command like so <b>find -size 1033c</b>. This gives us one file that can be read for the password.
+                </p><br><hr><br>
+                <h3>Level 6-7</h3>
+                <p>
+                    The password is found somewhere on the server with a file size of 33 bytes, user of bandit7, and group of bandit6. The find command comes 
+                    in handy here as the command <b>find -user bandit7 -group bandit6</b> will list all files with these conditions. The file seems to be in 
+                    <b>/var/lib/dpkg/info/bandit7.password</b>
+                </p><br><hr><br>
+                <h3>Level 7-8</h3>
+                <p>
+                    There is a large data found within the current directory with the password next to the word millionth. The next new command to be used is 
+                    grep. This allows you to find something that matches the pattern put into the command. Using the command, 
+                    <b>cat data.txt | grep millionth</b>. The | in-between the two commands takes the output of the cat command and feed it into the grep
+                    command so it can search through it for the password.
+                </p><br><hr><br>
+                <h3>Level 8-9</h3>
+                <p>
+                    The current directory holds a data file with a lot of possible passwords. The correct password is the only unique one. We will introduce two new 
+                    ones of <b>sort</b> and <b>uniq</b>. We can combine the two with <b>sort -h data.txt | uniq -u</b>. This sorts the passwords to combine similar ones 
+                    together and the uniq command search for any line that has no repeats.
+                </p><br><hr><br>
+                <h3>Level 9-10</h3>
+                <p>
+                    The file in the current directory has the password as the only human-readable line with multiple = signs next to it. The command 
+                    <b>strings data.txt | grep ==</b> can be used to first list all readable text within the file and then find the line with multiple 
+                    = signs next to it.
+                </p><br><hr><br>
+                <h3>Level 10-11</h3>
+                <p>
+                    This is the first file that has been encoded to hide the password. The encryption method is base64 which can be undone with 
+                    <b>base64 -d data.txt | cat</b>. This will decrypt it and readout the password within.
+                </p><br><hr><br>
+                <h3>Level 11-12</h3>
+                <p>
+                    For this level, the file containing the password has its letters rotated 13 places. This is a common cryptographic method.
+                    The file can be read with cat and translated with the tr command like <b>cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'</b>
+                </p><br><hr><br>
+                <h3>Level 12-13</h3>
+                <p>
+                    This level requires quite a few steps. The file has been compressed multiple times and turned into a hexdump. This introduces 
+                    multiple new commands that are: xxd, gzip, tar, and bzip2. Looking at the data file sees a hexdump as the output. The command
+                    <b>xxd -r file > new_filename</b>. The ls -l command will show what type of  
+                </p><br><hr><br>
+                <h3>Level 13-14</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 14-15</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 15-16</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 16-17</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 17-18</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 18-19</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 19-20</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 20-21</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 21-22</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 22-23</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 23-24</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 24-25</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 25-26</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 26-27</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 27-28</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 28-29</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 29-30</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 30-31</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 31-32</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 32-33</h3>
+                <p>
+                    
+                </p><br><hr><br>
+                <h3>Level 33-34</h3>
+                <p>
+                    
+                </p>
+            </div>
+        </column>
+    </body>
+</html>
